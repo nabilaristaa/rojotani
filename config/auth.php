@@ -45,6 +45,12 @@ return [
             'driver' => 'passport',
             'provider' => 'users',
         ],
+
+        'penjual' => [
+            'driver' => 'passport',
+            'provider' => 'penjuals',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -70,10 +76,15 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'users' => [
+            'driver' => 'database',
+            'table' => 'users',
+        ],
+
+        'penjuals' => [
+            'driver' => 'database',
+            'table' => 'penjuals',
+        ],
     ],
 
     /*
