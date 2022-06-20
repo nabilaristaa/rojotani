@@ -76,14 +76,14 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'users' => [
-            'driver' => 'database',
-            'table' => 'users',
-        ],
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
 
         'penjuals' => [
-            'driver' => 'database',
-            'table' => 'penjuals',
+            'driver' => 'eloquent',
+            'model' => App\Models\Penjual::class,
         ],
     ],
 
@@ -105,6 +105,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'penjuals' => [
+            'provider' => 'penjuals',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

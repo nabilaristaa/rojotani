@@ -30,17 +30,13 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Email</th>
                         <th>Role</th>
-                        <th>Image</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $no = 0;?>
-                    @foreach ($userdata as $item)
+                    @foreach ($role as $item)
                     <tr>
                         <td>{{ ++$no }}</td>
                         <td>{{ $item->nama }}</td>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\PelangganController;
 use App\Http\Controllers\Api\LelangController;
 use App\Http\Controllers\Api\TambahStokController;
 use App\Http\Controllers\Api\ProdukController;
+use App\Http\Controllers\Api\Auth\UserMobileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,14 @@ Route::get('logout', [AuthController::class, 'logout']);
 // Route::post('login', [AuthController::class, 'login']);
 // Route::get('logout', [AuthController::class, 'logout']);
 
+Route::post('reg', [UserMobileController::class, 'register_penjual']);
+Route::post('log', [UserMobileController::class, 'login']);
+
+
 Route::post('penjual', [PenjualController::class, 'register_penjual']);
-Route::post('loginPenjual', [PenjualController::class, 'login_penjual']);
-Route::get('logoutPenjual', [PenjualController::class, 'logout_penjual']);
+Route::post('loginpenjual', [PenjualController::class, 'login_penjual']);
+Route::get('logoutpenjual', [PenjualController::class, 'logout_penjual']);
+
 Route::get('penjual/{penjual}', [PenjualController::class, 'get']);
 Route::get('penjual', [PenjualController::class, 'get_all']);
 Route::delete('penjual/{penjual}', [PenjualController::class, 'delete']);
@@ -48,13 +54,15 @@ Route::get('pelanggan', [PelangganController::class, 'get_all']);
 Route::delete('pelanggan/{pelanggan}', [PelangganController::class, 'delete']);
 Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update']);
 
-Route::post('lelang', [LelangController::class, 'tambah_lelang']);
-Route::get('lelangg/{lelang}', [LelangController::class, 'tampil_lelang']);
-Route::get('lelang', [LelangController::class, 'tampil_semua']);
-
-Route::post('tambah_stok', [TambahStokController::class, 'tambah_stok']);
-Route::delete('hapus_stok/{hapus_stok}', [TambahStokController::class, 'hapus_stok']);
 Route::post('produk', [ProdukController::class, 'tambah_produk']);
 Route::get('produk/{poduk}', [ProdukController::class, 'tampil_produk']);
 Route::get('produk', [ProdukController::class, 'tampil_semua']);
+
+Route::post('lelang', [LelangController::class, 'tambah_lelang']);
+Route::get('lelang/{lang}', [LelangController::class, 'tampil_lelang']);
+Route::get('lelang', [LelangController::class, 'tampil_semua']);
+
+Route::post('tambah_stok', [TambahStokController::class, 'tambah_stok']);
+Route::delete('hapus_stok/{hps_stok}', [TambahStokController::class, 'hapus_stok']);
+
 

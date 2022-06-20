@@ -12942,6 +12942,14 @@ body {
     color: white;
 }
 
+.imagelogo2 {
+    width: 90px;
+    height: 45px;
+    margin-left: 50px;
+    padding-top: 0px;
+    color: white;
+}
+
 .navatas {
     background-color: #53B175;
     color: white;
