@@ -62,20 +62,6 @@ class UserMobileController extends Controller
     $user = user_mobile::where('email', $request->email)->first();
     if ($user) {
         if (password_verify($request->password, $user->password)) {
-            if ($user->kategori== 'petani') {
-
-            $tokenResult    = $user->createToken('AccessToken');
-            $token          = $tokenResult->token;
-            $token->save();
-
-            return response()->json([
-                'success'       => 1,
-                'message'       => 'selamat datang petani ' . $user->nama,
-                'access_token'  => $tokenResult->accessToken,
-                'token_id'      => $token->id,
-                'user'        => $user
-            ]);
-            }
 
                 $tokenResult    = $user->createToken('AccessToken');
                 $token          = $tokenResult->token;
@@ -83,7 +69,7 @@ class UserMobileController extends Controller
 
                 return response()->json([
                     'success'       => 1,
-                    'message'       => 'selamat datang pelanggan ' . $user->nama,
+                    'message'       => 'berhasil login',
                     'access_token'  => $tokenResult->accessToken,
                     'token_id'      => $token->id,
                     'user'        => $user
