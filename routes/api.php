@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\LelangController;
 use App\Http\Controllers\Api\TambahStokController;
 use App\Http\Controllers\Api\ProdukController;
 use App\Http\Controllers\Api\Auth\UserMobileController;
+use App\Http\Controllers\Api\Auth\UserPenjualController;
+use App\Http\Controllers\Api\Auth\UserPembeliController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,10 +38,18 @@ Route::get('logout', [AuthController::class, 'logout']);
 Route::post('reg', [UserMobileController::class, 'register_penjual']);
 Route::post('log', [UserMobileController::class, 'login']);
 
+Route::post('regpenjual', [UserPenjualController::class, 'register_penjual']);
+Route::post('logpenjual', [UserPenjualController::class, 'login_penjual']);
+Route::get('datapenjual/{id}', [UserPenjualController::class, 'get_penjual']);
 
-Route::post('penjual', [PenjualController::class, 'register_penjual']);
-Route::post('loginpenjual', [PenjualController::class, 'login_penjual']);
-Route::get('logoutpenjual', [PenjualController::class, 'logout_penjual']);
+Route::post('regpembeli', [UserPembeliController::class, 'register_pembeli']);
+Route::post('logpembeli', [UserPembeliController::class, 'login_pembeli']);
+
+
+
+// Route::post('penjual', [PenjualController::class, 'register_penjual']);
+// Route::post('loginpenjual', [PenjualController::class, 'login_penjual']);
+// Route::get('logoutpenjual', [PenjualController::class, 'logout_penjual']);
 
 Route::get('penjual/{penjual}', [PenjualController::class, 'get']);
 Route::get('penjual', [PenjualController::class, 'get_all']);
@@ -55,7 +65,7 @@ Route::delete('pelanggan/{pelanggan}', [PelangganController::class, 'delete']);
 Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update']);
 
 Route::post('produk', [ProdukController::class, 'tambah_produk']);
-Route::get('produk/{poduk}', [ProdukController::class, 'tampil_produk']);
+Route::get('produk/{id}', [ProdukController::class, 'tampil_produk']);
 Route::get('produk', [ProdukController::class, 'tampil_semua']);
 
 Route::post('lelang', [LelangController::class, 'tambah_lelang']);
