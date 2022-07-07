@@ -51,18 +51,18 @@ Route::post('logpembeli', [UserPembeliController::class, 'login_pembeli']);
 // Route::post('loginpenjual', [PenjualController::class, 'login_penjual']);
 // Route::get('logoutpenjual', [PenjualController::class, 'logout_penjual']);
 
-Route::get('penjual/{penjual}', [PenjualController::class, 'get']);
-Route::get('penjual', [PenjualController::class, 'get_all']);
-Route::delete('penjual/{penjual}', [PenjualController::class, 'delete']);
-Route::put('penjual/{penjual}', [PenjualController::class, 'update']);
+// Route::get('penjual/{penjual}', [PenjualController::class, 'get']);
+// Route::get('penjual', [PenjualController::class, 'get_all']);
+// Route::delete('penjual/{penjual}', [PenjualController::class, 'delete']);
+// Route::put('penjual/{penjual}', [PenjualController::class, 'update']);
 
-Route::post('pelanggan', [PelangganController::class, 'register_pelanggan']);
-Route::post('loginPelanggan', [PelangganController::class, 'login_pelanggan']);
-Route::get('logoutPelanggan', [PelangganController::class, 'logout_pelanggan']);
-Route::get('pelanggan/{pelanggan}', [PelangganController::class, 'get']);
-Route::get('pelanggan', [PelangganController::class, 'get_all']);
-Route::delete('pelanggan/{pelanggan}', [PelangganController::class, 'delete']);
-Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update']);
+// Route::post('pelanggan', [PelangganController::class, 'register_pelanggan']);
+// Route::post('loginPelanggan', [PelangganController::class, 'login_pelanggan']);
+// Route::get('logoutPelanggan', [PelangganController::class, 'logout_pelanggan']);
+// Route::get('pelanggan/{pelanggan}', [PelangganController::class, 'get']);
+// Route::get('pelanggan', [PelangganController::class, 'get_all']);
+// Route::delete('pelanggan/{pelanggan}', [PelangganController::class, 'delete']);
+// Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update']);
 
 Route::post('produk', [ProdukController::class, 'tambah_produk']);
 Route::get('produk/{id}', [ProdukController::class, 'tampil_produk']);
