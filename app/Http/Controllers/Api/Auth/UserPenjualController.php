@@ -71,7 +71,8 @@ class UserPenjualController extends Controller
                     'message'       => 'selamat datang ' . $user->nama,
                     'access_token'  => $tokenResult->accessToken,
                     'token_id'      => $token->id,
-                    'user'        => $user
+                    'user'        => $user,
+                    'penjual_id'        => (string)$user->id,
                 ]);
             }
             return $this->error('Password Salah');
