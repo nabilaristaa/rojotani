@@ -69,6 +69,7 @@ Route::post('getproduk', [ProdukController::class, 'tampil_produk']);
 // Route::get('produk', [ProdukController::class, 'tampil_semua']);
 Route::post('produk/edit', [ProdukController::class, 'edit_produk']);
 Route::post('produk/update', [ProdukController::class, 'update_produk']);
+Route::delete('delete/{barang_id}', [ProdukController::class, 'deleteProduk']);
 
 Route::post('lelang', [LelangController::class, 'tambah_lelang']);
 Route::get('lelang/{lang}', [LelangController::class, 'tampil_lelang']);

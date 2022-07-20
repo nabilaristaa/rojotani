@@ -17,6 +17,7 @@ class CreateProduksTable extends Migration
             $table->id();
             $table->bigInteger('penjual_id')->unsigned();
             $table->foreign('penjual_id')->references('id')->on('user_penjuals');
+            $table->string('gambar')->nullable();
             $table->string('nama');
             $table->integer('harga');
             $table->string('satuan');

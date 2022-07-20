@@ -27,14 +27,11 @@ class ProdukController extends Controller
                 'message'     =>$validator->errors()], 401);
         }
 
-        // if($request->file('gambar')){
-        //     $image = $request->file('gambar')->getClientOriginalName();
-        //     $request->file('gambar')->move('public/storage/app/post-image', $image);
-        // }
-        // $image = null;
+        // $image = $request->file('gambar')->getClientOriginalName();
+        // $request->file('gambar')->move('public/storage/app/post-image', $image);
 
         $produk = new Produk([
-        // 'gambar' =>  $image,
+        //'gambar' =>  $image,
         'penjual_id'=> $request->penjual_id,
         'nama' => $request->nama,
         'harga'=> $request->harga,
@@ -125,6 +122,16 @@ class ProdukController extends Controller
             ], 201);
     }
 
+    public function deleteProduk($id){
+        $produk = Produk::find($id);
+        $produk->delete();
+        return response()->json(['message'=>'produk berhasil dihapus']);
+    }
 
+    // public function deleteProduk(Request $request){
+    //     $produk = Produk::find($request->$barang_id);
+    //     $produk->delete();
+    //     return response()->json(['message'=>'produk berhasil dihapus']);
+    // }
 
 }
