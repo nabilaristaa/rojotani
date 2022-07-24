@@ -43,19 +43,6 @@ class UserdataFormRequest extends FormRequest
                 'nullable',
                 'mimes:jpeg,jpg,png'
             ],
-            'meta_title' => [
-                'required',
-                'string',
-                'max:200'
-            ],
-            'meta_description' => [
-                'required',
-                'string',
-            ],
-            'meta_keyword' => [
-                'required',
-                'string',
-            ],
             'navbar_status' => [
                 'nullable',
             ],

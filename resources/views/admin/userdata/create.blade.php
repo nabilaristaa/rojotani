@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Data User RojoTani')
+@section('title','Data Pegawai RojoTani')
 
 @section('content')
 
@@ -40,7 +40,6 @@
                         <option selected></option>
                         <option>Admin</option>
                         <option>Pimpinan</option>
-                        <option>Pemilik komoditas</option>
                     </select>
                 </div>
 
@@ -49,21 +48,6 @@
                     <input type="file" name="image" class="form-control1" />
                 </div>
 
-                <h6>RojoTani SEO Tags</h6>
-                <div class="mb-3">
-                    <label>Meta Title</label>
-                    <input type="text" name="meta_title" class="form-control1">
-                </div>
-                <div class="mb-3">
-                    <label>Meta Description</label>
-                    <textarea name="meta_description" rows="3" class="form-control1"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label>Meta Keyword</label>
-                    <textarea name="meta_keyword" rows="3" class="form-control1"></textarea>
-                </div>
-
-                <h6>RojoTani Status Mode</h6>
                 <div class="row">
                     <div class="col-md-3 mb-3">
                         <label>Navbar Status</label>
@@ -75,7 +59,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary">Simpan Data</button>
+                        <button type="submit" class="btn btn-primary">Tambah Data</button>
                     </div>
                 </div>
             </form>

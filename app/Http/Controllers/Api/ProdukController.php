@@ -27,17 +27,14 @@ class ProdukController extends Controller
                 'message'     =>$validator->errors()], 401);
         }
 
-        $image = $request->file('gambar')->getClientOriginalName();
-        $imagepath = $request->file('gambar')->move('img/produk', $image);
-
-        //  if($request->file('gambar')){
-            // $image = $request->file('gambar')->getClientOriginalName();
-            // $request->file('gambar')->move('public/storage/app/post-image', $image);
-            // }
-            // $image = null;
+        // if($request->file('gambar')){
+        //     $image = $request->file('gambar')->getClientOriginalName();
+        //     $request->file('gambar')->move('public/storage/app/post-image', $image);
+        // }
+        // $image = null;
 
         $produk = new Produk([
-        'gambar' => $image,
+        // 'gambar' =>  $image,
         'penjual_id'=> $request->penjual_id,
         'nama' => $request->nama,
         'harga'=> $request->harga,
@@ -110,8 +107,6 @@ class ProdukController extends Controller
         // }
         // $image = null;
 
-
-
         $produk = Produk::find($request->barang_id);
         $produk->nama = $request->nama;
         $produk->harga = $request->harga;
@@ -124,20 +119,16 @@ class ProdukController extends Controller
             return response()->json([
                 'produk' => $produk,
                 'success' => 1,
-                'message' => 'Berhasil Ditambahkan'
+                'message' => 'Produk Berhasil Ditambahkan'
             ], 201);
     }
 
-    public function deleteProduk($id){
-        $produk = Produk::find($id);
+    public function delete($barang_id){
+        $produk = Produk::find($barang_id);
         $produk->delete();
-        return response()->json(['message'=>'produk berhasil dihapus']);
+        return response()->json([
+            'message'=>'produk berhasil dihapus', 
+            'data'=>[]
+        ], 201);
     }
-
-    // public function deleteProduk(Request $request){
-    //     $produk = Produk::find($request->$barang_id);
-    //     $produk->delete();
-    //     return response()->json(['message'=>'produk berhasil dihapus']);
-    // }
-
 }

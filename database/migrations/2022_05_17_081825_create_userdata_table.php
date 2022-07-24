@@ -19,9 +19,6 @@ class CreateUserdataTable extends Migration
             $table->string('email');
             $table->string('role');
             $table->string('image');
-            $table->string('meta_title');
-            $table->text('meta_description');
-            $table->text('meta_keyword');
             $table->tinyInteger('navbar_status')->default('0');
             $table->tinyInteger('status')->default('0');
             $table->string('created_by');

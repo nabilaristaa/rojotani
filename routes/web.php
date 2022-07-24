@@ -25,6 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
 
+    //Data Pegawai (userdata Web)
+
     Route::get('userdata', [App\Http\Controllers\UserdataController::class, 'index']);
 
     Route::get('add-userdata', [App\Http\Controllers\UserdataController::class, 'create']);
@@ -36,6 +38,21 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::put('update-userdata/{userdata_id}', [App\Http\Controllers\UserdataController::class, 'update']);
 
     Route::get('delete-userdata/{userdata_id}', [App\Http\Controllers\UserdataController::class, 'destroy']);
+
+
+    //Data Pelanggan RojoTani
+
+    Route::get('datapembeli', [App\Http\Controllers\PembeliController::class, 'index']);
+
+    Route::get('edit-pembeli', [App\Http\Controllers\PembeliController::class, 'edit']);
+
+    Route::put('update-pembeli', [App\Http\Controllers\PembeliController::class, 'update']);
+
+    Route::get('delete-userdata/{userdata_id}', [App\Http\Controllers\UserdataController::class, 'destroy']);
+
+
+
+
 
     Route::get('datapetani', [App\Http\Controllers\PetaniController::class, 'index']);
 

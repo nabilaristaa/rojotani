@@ -12,14 +12,14 @@ class LelangController extends Controller
     public function tambah_lelang(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            //'gambar' => 'required',
-            'nama' => 'required|unique:lelangs',
+            'gambar' => 'required',
+            'nama' => 'required',
             'harga'=> 'required',
+            'stok'=>'required',
             'satuan'=>'required',
             'jenis'=>'required',
             'deskripsi'=>'required',
-            'status'=>'required',
-            // 'waktu'=>'required'
+            'waktu'=>'required'
         ]);
 
         if ($validator->fails()) {
@@ -28,40 +28,35 @@ class LelangController extends Controller
                 'pesan'     =>$validator->errors()], 401);
         }
 
-        $images = $request->file('gambar')->getClientOriginalName();
-        $imagepath = $request->file('gambar')->move('img/lelang', $images);
+        $image = $request->file('gambar')->getClientOriginalName();
+        $request->file('gambar')->move('public/storage/app/post-image', $image);
+
 
         $lelang = new Lelang([
-        'gambar' =>  $images,
-        'penjual_id'=> $request->penjual_id,
+        'gambar' =>  $image,
         'nama' => $request->nama,
         'harga'=> $request->harga,
+        'stok'=>$request->stok,
         'satuan'=>$request->satuan,
         'jenis'=>$request->jenis,
         'deskripsi'=>$request->deskripsi,
-        'status'=>$request->status,
-        // 'waktu'=>$request->waktu
+        'waktu'=>$request->waktu
         ]);
 
         $lelang->save();
         return response()->json([
             'lelang' => $lelang,
-            'success' => 1,
-            'message' => 'Berhasil Ditambahkan'
+            'success' => true
         ], 201);
     }
 
-    public function tampil_lelang(Request $request){
-        $lelang = new Lelang();
-        $lelang = $lelang->where('penjual_id', $request->penjual_id)->get();
+    public function tampil_lelang(Lelang $lelang){
         $data=[
-            'success' => 1,
-            "message"=>"Berhasil ditampilkan",
+            "msg"=>"Berhasil",
             "status"=>200,
-            "lelang"=>$lelang,
+            "data"=>$lelang,
         ];
-
-        return response()->json($lelang);
+        return response()->json($data);
     }
 
     public function tampil_semua(){
@@ -76,59 +71,4 @@ class LelangController extends Controller
         return response()->json($data);
 
     }
-
-    public function edit_lelang(Request $request){
-        $lelang = Lelang::find($request->barang_id);
-
-        return response()->json($lelang);
-    }
-
-    public function update_lelang(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'nama' => 'required|unique:produks',
-            'harga'=> 'required',
-            'satuan'=>'required',
-            'jenis'=>'required',
-            'deskripsi'=>'required',
-            'waktu'=>'required'
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'success'   => 0,
-                'message'     =>$validator->errors()], 401);
-        }
-
-        // if($request->file('gambar')){
-        //     $image = $request->file('gambar')->getClientOriginalName();
-        //     $request->file('gambar')->move('public/storage/app/post-image', $image);
-        // }
-        // $image = null;
-
-
-
-        $lelang = Lelang::find($request->lelang_id);
-        $lelang->nama = $request->nama;
-        $lelang->harga = $request->harga;
-        $lelang->satuan = $request->satuan;
-        $lelang->jenis = $request->jenis;
-        $lelang->deskripsi = $request->deskripsi;
-        $lelang->waktu = $request->waktu;
-
-
-        $lelang->update();
-            return response()->json([
-                'lelang' => $lelang,
-                'success' => 1,
-                'message' => 'Berhasil Ditambahkan'
-            ], 201);
-    }
-
-    public function deletelelang($id){
-        $lelang = Lelang::find($id);
-        $lelang->delete();
-        return response()->json(['message'=>'produk berhasil dihapus']);
-    }
-
 }

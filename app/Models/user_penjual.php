@@ -35,8 +35,4 @@ class user_penjual extends Model
      {
          return $this->hasMany(Produk::class);
      }
-     public function lelang()
-     {
-         return $this->hasMany(Lelang::class);
-     }
 }
