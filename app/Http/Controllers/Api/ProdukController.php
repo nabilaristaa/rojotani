@@ -27,11 +27,17 @@ class ProdukController extends Controller
                 'message'     =>$validator->errors()], 401);
         }
 
-        // $image = $request->file('gambar')->getClientOriginalName();
-        // $request->file('gambar')->move('public/storage/app/post-image', $image);
+        $image = $request->file('gambar')->getClientOriginalName();
+        $imagepath = $request->file('gambar')->move('img/produk', $image);
+
+        //  if($request->file('gambar')){
+            // $image = $request->file('gambar')->getClientOriginalName();
+            // $request->file('gambar')->move('public/storage/app/post-image', $image);
+            // }
+            // $image = null;
 
         $produk = new Produk([
-        //'gambar' =>  $image,
+        'gambar' => $image,
         'penjual_id'=> $request->penjual_id,
         'nama' => $request->nama,
         'harga'=> $request->harga,

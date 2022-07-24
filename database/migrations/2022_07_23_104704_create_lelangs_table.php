@@ -15,14 +15,16 @@ class CreateLelangsTable extends Migration
     {
         Schema::create('lelangs', function (Blueprint $table) {
             $table->id();
-            $table->string('gambar');
+            $table->bigInteger('penjual_id')->unsigned();
+            $table->foreign('penjual_id')->references('id')->on('user_penjuals');
+            $table->string('gambar')->nullable();
             $table->string('nama');
             $table->string('harga');
-            $table->integer('stok');
             $table->string('satuan');
             $table->string('jenis');
             $table->text('deskripsi');
-            $table->datetime('waktu');
+            $table->string('status');
+            // $table->datetime('waktu');
             $table->timestamps();
         });
     }
