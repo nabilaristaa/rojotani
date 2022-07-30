@@ -32,7 +32,7 @@ class UserPenjualController extends Controller
             'alamat' => $request->alamat,
             'no_rekening' => $request->no_rekening,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' =>  bcrypt($request->password),
         ]);
 
         //cek pada program anda, jika belum ada, anda bisa menambahkan
@@ -111,11 +111,29 @@ class UserPenjualController extends Controller
                 return response()->json($data);
     }
 
-    public function update(user_penjual $user){
-        $user->update([
-            'password' =>  bcrypt($user->password),
+    public function updatePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            // 'email' => 'required|unique:user_penjuals',
+            'password'=> 'required|min:6|confirmed',
         ]);
-        return response()->json($user, 201);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success'   => 0,
+                'message'     =>$validator->errors()], 401);
+        }
+
+        $penjual = user_penjual::find($request->penjual_id);
+        // $penjual->email = $request->email;
+        $penjual->password =  bcrypt($request->password);
+        $penjual->update();
+
+        return response()->json([
+            'penjual' => $penjual,
+            'success' => 1,
+            'message' => 'Berhasil Ditambahkan'
+        ], 201);
     }
 
     public function error($pesan)

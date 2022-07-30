@@ -69,7 +69,8 @@ class UserPembeliController extends Controller
                     'message'       => 'selamat datang ' . $user->nama,
                     'access_token'  => $tokenResult->accessToken,
                     'token_id'      => $token->id,
-                    'user'        => $user
+                    'user'        => $user,
+                    'pembeli_id'      => (string)$user->id,
                 ]);
             }
             return $this->error('Password Salah');
@@ -107,12 +108,29 @@ class UserPembeliController extends Controller
                 return response()->json($data);
     }
 
-    public function update(user_pembeli $user){
-        $user->update([
-            'password' =>  bcrypt($user->password),
-        ]);
-        return response()->json($user, 201);
-    }
+      public function updatePassword1(Request $request)
+   {
+       $validator = Validator::make($request->all(), [
+           // 'email' => 'required|unique:user_pembelis',
+           'password'=> 'required|min:6|confirmed',
+       ]);
+
+       if ($validator->fails()) {
+           return response()->json([
+               'success'   => 0,
+               'message'     =>$validator->errors()], 401);
+       }
+
+       $pembeli = user_pembeli::find($request->pembeli_id);
+       // $pembeli->email = $request->email;
+       $pembeli->password =  bcrypt($request->password);
+       $pembeli->update();
+       return response()->json([
+           'pembeli' => $pembeli,
+           'success' => 1,
+           'message' => 'Berhasil Ditambahkan'
+       ], 201);
+   }
 
     public function error($pesan)
     {

@@ -12,7 +12,7 @@ use Laravel\Passport\HasApiTokens;
 class user_penjual extends Model
 {
     use HasFactory,HasApiTokens;
-
+    protected $table = "user_penjuals";
     protected $fillable = [
         'gambar',
         'nama',
