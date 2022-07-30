@@ -2390,8 +2390,8 @@ progress {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.searchkotak{
-    border-color:#A2A4A2;
+.searchkotak {
+    border-color: #A2A4A2;
     width: 220px;
     height: 41px;
     font-size: 16px;
@@ -2401,8 +2401,8 @@ progress {
 
 }
 
-.searchkotak1{
-    border-color:#A2A4A2;
+.searchkotak1 {
+    border-color: #A2A4A2;
     width: 220px;
     height: 41px;
     font-size: 16px;
@@ -2412,8 +2412,8 @@ progress {
     margin-left: 50%;
 }
 
-.searchkotak2{
-    border-color:#A2A4A2;
+.searchkotak2 {
+    border-color: #A2A4A2;
     width: 220px;
     height: 41px;
     font-size: 16px;
@@ -3653,7 +3653,7 @@ fieldset:disabled .btn {
     border-color: #48aa6c;
 }
 
-.buttoncetak {
+.buttoncetak2 {
     color: #fff;
     background-color: #53B175;
     border-color: #53B175;
@@ -3665,11 +3665,11 @@ fieldset:disabled .btn {
     margin-top: 15px;
     margin-bottom: 17px;
     text-align: center;
-    margin-left: 56%;
+    margin-left: 50%;
     margin-right: 10px;
 }
 
-.buttoncetak:hover {
+.buttoncetak2:hover {
     color: #fff;
     background-color: #48aa6c;
     border-color: #48aa6c;
@@ -3687,7 +3687,7 @@ fieldset:disabled .btn {
     margin-top: 15px;
     margin-bottom: 17px;
     text-align: center;
-    margin-left: 50%;
+    margin-left: 42%;
     margin-right: 10px;
 }
 
@@ -3696,6 +3696,27 @@ fieldset:disabled .btn {
     background-color: #48aa6c;
     border-color: #48aa6c;
 }
+
+.submit {
+    color: #fff;
+    background-color: #53B175;
+    border-color: #53B175;
+    width: 190px;
+    height: 38px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 17px;
+    text-align: center;
+}
+
+.submit:hover {
+    color: #fff;
+    background-color: #48aa6c;
+    border-color: #48aa6c;
+}
+
 
 .btn-primary:hover {
     color: #fff;

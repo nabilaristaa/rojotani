@@ -9,6 +9,8 @@ use App\Http\Controllers\Api\LelangController;
 use App\Http\Controllers\Api\TambahStokController;
 use App\Http\Controllers\Api\ProdukController;
 use App\Http\Controllers\Api\Auth\UserMobileController;
+use App\Http\Controllers\Api\Auth\UserPenjualController;
+use App\Http\Controllers\Api\Auth\UserPembeliController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,30 +35,47 @@ Route::get('logout', [AuthController::class, 'logout']);
 // Route::post('login', [AuthController::class, 'login']);
 // Route::get('logout', [AuthController::class, 'logout']);
 
-Route::post('reg', [UserMobileController::class, 'register_penjual']);
-Route::post('log', [UserMobileController::class, 'login']);
 
 
-Route::post('penjual', [PenjualController::class, 'register_penjual']);
-Route::post('loginpenjual', [PenjualController::class, 'login_penjual']);
-Route::get('logoutpenjual', [PenjualController::class, 'logout_penjual']);
 
-Route::get('penjual/{penjual}', [PenjualController::class, 'get']);
-Route::get('penjual', [PenjualController::class, 'get_all']);
-Route::delete('penjual/{penjual}', [PenjualController::class, 'delete']);
-Route::put('penjual/{penjual}', [PenjualController::class, 'update']);
+Route::post('regpenjual', [UserPenjualController::class, 'register_penjual']);
+Route::post('logpenjual', [UserPenjualController::class, 'login_penjual']);
+Route::get('datapenjual/{id}', [UserPenjualController::class, 'get_penjual']);
+Route::post('updatepenjual', [UserPenjualController::class, 'updatePassword']);
 
-Route::post('pelanggan', [PelangganController::class, 'register_pelanggan']);
-Route::post('loginPelanggan', [PelangganController::class, 'login_pelanggan']);
-Route::get('logoutPelanggan', [PelangganController::class, 'logout_pelanggan']);
-Route::get('pelanggan/{pelanggan}', [PelangganController::class, 'get']);
-Route::get('pelanggan', [PelangganController::class, 'get_all']);
-Route::delete('pelanggan/{pelanggan}', [PelangganController::class, 'delete']);
-Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update']);
+Route::post('regpembeli', [UserPembeliController::class, 'register_pembeli']);
+Route::post('logpembeli', [UserPembeliController::class, 'login_pembeli']);
+Route::post('updatepembeli', [UserPembeliController::class, 'updatePassword1']);
+
+
+
+
+// Route::post('penjual', [PenjualController::class, 'register_penjual']);
+// Route::post('loginpenjual', [PenjualController::class, 'login_penjual']);
+// Route::get('logoutpenjual', [PenjualController::class, 'logout_penjual']);
+
+// Route::get('penjual/{penjual}', [PenjualController::class, 'get']);
+// Route::get('penjual', [PenjualController::class, 'get_all']);
+// Route::delete('penjual/{penjual}', [PenjualController::class, 'delete']);
+// Route::put('penjual/{penjual}', [PenjualController::class, 'update']);
+
+// Route::post('pelanggan', [PelangganController::class, 'register_pelanggan']);
+// Route::post('loginPelanggan', [PelangganController::class, 'login_pelanggan']);
+// Route::get('logoutPelanggan', [PelangganController::class, 'logout_pelanggan']);
+// Route::get('pelanggan/{pelanggan}', [PelangganController::class, 'get']);
+// Route::get('pelanggan', [PelangganController::class, 'get_all']);
+// Route::delete('pelanggan/{pelanggan}', [PelangganController::class, 'delete']);
+// Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update']);
 
 Route::post('produk', [ProdukController::class, 'tambah_produk']);
-Route::get('produk/{poduk}', [ProdukController::class, 'tampil_produk']);
-Route::get('produk', [ProdukController::class, 'tampil_semua']);
+<<<<<<< Updated upstream
+=======
+Route::get('getprodukall', [ProdukController::class, 'tampil_semua']);
+>>>>>>> Stashed changes
+Route::post('getproduk', [ProdukController::class, 'tampil_produk']);
+// Route::get('produk', [ProdukController::class, 'tampil_semua']);
+Route::post('produk/edit', [ProdukController::class, 'edit_produk']);
+Route::post('produk/update', [ProdukController::class, 'update_produk']);
 
 Route::post('lelang', [LelangController::class, 'tambah_lelang']);
 Route::get('lelang/{lang}', [LelangController::class, 'tampil_lelang']);

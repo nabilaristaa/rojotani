@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Data User RojoTani')
+@section('title','Data Pegawai RojoTani')
 
 @section('content')
 
@@ -44,20 +44,6 @@
                 <div class="mb-3">
                     <label>Image</label>
                     <input type="file" name="image" class="form-control1">
-                </div>
-
-                <h6>RojoTani SEO Tags</h6>
-                <div class="mb-3">
-                    <label>Meta Title</label>
-                    <input type="text" name="meta_title" value="{{ $userdata->meta_title }}" class="form-control1">
-                </div>
-                <div class="mb-3">
-                    <label>Meta Description</label>
-                    <textarea name="meta_description" rows="3" class="form-control1"> {{ $userdata->meta_description }} </textarea>
-                </div>
-                <div class="mb-3">
-                    <label>Meta Keyword</label>
-                    <textarea name="meta_keyword" rows="3" class="form-control1"> {{ $userdata->meta_keyword }} </textarea>
                 </div>
 
                 <h6>RojoTani Status Mode</h6>

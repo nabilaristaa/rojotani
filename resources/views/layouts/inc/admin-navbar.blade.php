@@ -1,7 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark navatas">
             <!-- Navbar Brand-->
             <a class="navbar-brand" href="{{ url('admin/dashboard') }}"><img class="imagelogo" src="{{asset('public/assets/img/logo.png')}}"/></a>
-            <!-- <a class="navbar-brand ps-3" href="{{ url('admin/dashboard') }}"></a> -->
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 navatas" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
