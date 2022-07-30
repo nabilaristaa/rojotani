@@ -25,8 +25,11 @@ class UserPembeliController extends Controller
                 'pesan'     =>$validator->errors()], 401);
         }
 
+        $image = $request->file('gambar')->getClientOriginalName();
+        $imgpath1= $request->file('gambar')->move('public/img/userpembeli', $image);
+
         $user = new user_pembeli([
-            'gambar' => $request->gambar,
+            'gambar' => $image,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'email' => $request->email,
