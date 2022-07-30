@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Data Pembeli RojoTani')
+@section('title','Data Penjual RojoTani')
 
 @section('content')
 
@@ -8,7 +8,7 @@
 
     <div class="card mt-4">
         <div class="card-header1">
-            <h4 class="">Edit Data Pembeli </h4>
+            <h4 class="">Edit Data Penjual </h4>
 
         </div>
         <div class="card-body">
@@ -20,23 +20,28 @@
             </div>
             @endif
 
-            <form action="{{ url('admin/update-datapembeli/'.$userpembeli->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('admin/update-datapenjual/'.$userpenjual->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
                 <div class="mb-3">
-                    <label>Nama Pembeli</label>
-                    <input type="text" name="nama" value="{{ $userpembeli->nama }}" class="form-control1">
+                    <label>Nama Penjual</label>
+                    <input type="text" name="nama" value="{{ $userpenjual->nama }}" class="form-control1">
                 </div>
 
                 <div class="mb-3">
                     <label>Email</label>
-                    <input type="text" name="email" value="{{ $userpembeli->email }}" class="form-control1">
+                    <input type="text" name="email" value="{{ $userpenjual->email }}" class="form-control1">
                 </div>
 
                 <div class="mb-3">
                     <label>Alamat</label>
-                    <input type="text" name="alamat" value="{{ $userpembeli->alamat }}" class="form-control1">
+                    <input type="text" name="alamat" value="{{ $userpenjual->alamat }}" class="form-control1">
+                </div>
+
+                <div class="mb-3">
+                    <label>No. Rekening</label>
+                    <input type="text" name="no_rekening" value="{{ $userpenjual->no_rekening }}" class="form-control1">
                 </div>
 
                 <div class="mb-3">

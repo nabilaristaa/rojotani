@@ -44,29 +44,25 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
 
     Route::get('datapembeli', [App\Http\Controllers\PembeliController::class, 'index']);
 
-    Route::get('edit-pembeli', [App\Http\Controllers\PembeliController::class, 'edit']);
+    Route::get('edit-datapembeli/{userpembeli_id}', [App\Http\Controllers\PembeliController::class, 'edit_userpembeli']);
 
-    Route::put('update-pembeli', [App\Http\Controllers\PembeliController::class, 'update']);
+    Route::put('update-datapembeli/{userpembeli_id}', [App\Http\Controllers\PembeliController::class, 'update_userpembeli']);
 
-    Route::get('delete-userdata/{userdata_id}', [App\Http\Controllers\UserdataController::class, 'destroy']);
-
-
+    Route::get('delete-datapembeli/{userpembeli_id}', [App\Http\Controllers\PembeliController::class, 'delete_userpembeli']);
 
 
+    //Data Pemilik Komoditas penjual)
+    Route::get('datapenjual', [App\Http\Controllers\PenjualController::class, 'index']);
 
-    Route::get('datapetani', [App\Http\Controllers\PetaniController::class, 'index']);
+    Route::get('edit-datapenjual/{userpenjual_id}', [App\Http\Controllers\PenjualController::class, 'edit_userpenjual']);
 
-    Route::get('add-datapetani', [App\Http\Controllers\PetaniController::class, 'create']);
+    Route::put('update-datapenjual/{userpenjual_id}', [App\Http\Controllers\PenjualController::class, 'update_userpenjual']);
 
-    Route::post('add-datapetani', [App\Http\Controllers\PetaniController::class, 'store']);
+    Route::get('delete-datapenjual/{userpenjual_id}', [App\Http\Controllers\PenjualController::class, 'delete_userpenjual']);
 
-    Route::get('edit-datapetani/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'edit']);
 
-    Route::put('update-datapetani/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'update']);
 
-    Route::get('delete-datapetani/{datapetani_id}', [App\Http\Controllers\PetaniController::class, 'destroy']);
 
-    Route::get('datapelanggan', [App\Http\Controllers\PelangganController::class, 'index']);
 
     Route::get('pembayaran', [App\Http\Controllers\PembayaranController::class, 'index']);
 
@@ -77,18 +73,6 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function () {
     Route::get('produklelang', [App\Http\Controllers\ProdukLelangController::class, 'index']);
 
     Route::get('produk', [App\Http\Controllers\ProdukController::class, 'index']);
-
-    Route::get('role', [App\Http\Controllers\RoleController::class, 'index']);
-
-    Route::get('create-role', [App\Http\Controllers\RoleController::class, 'create']);
-
-    Route::post('add-role', [App\Http\Controllers\RoleController::class, 'store']);
-
-    Route::get('edit-role/{role_id}', [App\Http\Controllers\RoleController::class, 'edit']);
-
-    Route::put('update-role/{role_id}', [App\Http\Controllers\RoleController::class, 'update']);
-
-    Route::get('delete-role/{role_id}', [App\Http\Controllers\RoleController::class, 'destroy']);
 
 });
 

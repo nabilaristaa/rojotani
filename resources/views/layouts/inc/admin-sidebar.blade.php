@@ -40,7 +40,7 @@
                             </nav>
                         </div>
 
-                        <a class="nav-link collapsed" href="{{ url('admin/datapetani') }}" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                        <!-- <a class="nav-link collapsed" href="{{ url('admin/datapetani') }}" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
                         Data Pemilik Komoditas
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -49,11 +49,17 @@
                             <a class="nav-link" href="{{ url('admin/add-datapetani') }}">Tambah Data</a>
                             <a class="nav-link" href="{{ url('admin/datapetani') }}">Lihat Data</a>
                             </nav>
-                        </div>
+                        </div> -->
+
+                        <a class="nav-link collapsed" href="{{ url('admin/datapenjual') }}">
+                        Data Pemilik Komoditas
+                        </a>
 
                         <a class="nav-link collapsed" href="{{ url('admin/datapembeli') }}">
                         Data Pelanggan
                         </a>
+
+
                     </nav>
                 </div>
 
