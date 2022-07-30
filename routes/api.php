@@ -35,15 +35,18 @@ Route::get('logout', [AuthController::class, 'logout']);
 // Route::post('login', [AuthController::class, 'login']);
 // Route::get('logout', [AuthController::class, 'logout']);
 
-Route::post('reg', [UserMobileController::class, 'register_penjual']);
-Route::post('log', [UserMobileController::class, 'login']);
+
+
 
 Route::post('regpenjual', [UserPenjualController::class, 'register_penjual']);
 Route::post('logpenjual', [UserPenjualController::class, 'login_penjual']);
 Route::get('datapenjual/{id}', [UserPenjualController::class, 'get_penjual']);
+Route::post('updatepenjual', [UserPenjualController::class, 'updatePassword']);
 
 Route::post('regpembeli', [UserPembeliController::class, 'register_pembeli']);
 Route::post('logpembeli', [UserPembeliController::class, 'login_pembeli']);
+Route::post('updatepembeli', [UserPembeliController::class, 'updatePassword1']);
+
 
 
 
@@ -65,6 +68,10 @@ Route::post('logpembeli', [UserPembeliController::class, 'login_pembeli']);
 // Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update']);
 
 Route::post('produk', [ProdukController::class, 'tambah_produk']);
+<<<<<<< Updated upstream
+=======
+Route::get('getprodukall', [ProdukController::class, 'tampil_semua']);
+>>>>>>> Stashed changes
 Route::post('getproduk', [ProdukController::class, 'tampil_produk']);
 // Route::get('produk', [ProdukController::class, 'tampil_semua']);
 Route::post('produk/edit', [ProdukController::class, 'edit_produk']);
